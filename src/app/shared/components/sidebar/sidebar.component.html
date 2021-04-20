@@ -1,0 +1,37 @@
+<nav class="sidebar" [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }">
+  <div class="logo-area">
+    <img src="https://logoipsum.com/logo/logo-1.svg" alt="" />
+    <p><strong>CMS BOILERPLATE++</strong></p>
+  </div>
+  <div class="list-group">
+    <a routerLink="/member/home" tooltip="Dashboard" routerLinkActive="router-link-active" class="list-group-item"
+      ><i class="fa fa-home"></i><span>Dashboard</span></a
+    >
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addExpandClass('setting')">
+        <i class="fa fa-wrench"></i>
+        <span>Application Setup</span>&nbsp;
+        <i class="fa fa-caret-down"></i>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'setting'">
+        <ul class="submenu">
+          <li>
+            <a routerLinkActive="router-link-active" routerLink="/member/setup/about" class="list-group-item">
+              <span>About</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+  </div>
+  <div class="credits text-center">
+    <a>CREDITS ? 2021</a>
+  </div>
+  <!--   <div
+    class="toggle-button text-center m-0"
+    [ngClass]="{ collapsed: collapsed }"
+    (click)="toggleCollapsed()"
+  >
+    <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i>
+  </div> -->
+</nav>

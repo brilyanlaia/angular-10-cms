@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { Routes, RouterModule } from '@angular/router';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { RouterModule, Routes } from '@angular/router';
+import { SidebarModule } from '@shared/components/sidebar/sidebar.module';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 const routes: Routes = [
   {
     path: '',
@@ -12,6 +14,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), BsDropdownModule.forRoot()],
+  imports: [CommonModule, SidebarModule, RouterModule.forChild(routes), NgxDatatableModule],
 })
 export class HomeModule {}

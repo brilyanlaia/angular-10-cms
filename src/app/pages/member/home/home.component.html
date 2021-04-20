@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1><strong>Dashboard Page</strong></h1>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 py-5">
+      <div class="card card-basic py-5">
+        <div class="card-body">
+          <ngx-datatable
+            class="material"
+            [rows]="rows"
+            [columnMode]="'force'"
+            [headerHeight]="80"
+            [footerHeight]="'50'"
+            [rowHeight]="'auto'"
+          >
+            <!-- 
+                      // FOR SERVER SIDE PAGINATION
+                       <ngx-datatable
+                    class="bootstrap"
+                    [rows]="rows"
+                    [columnMode]="'force'"
+                    [headerHeight]="80"
+                    [footerHeight]="'50'"
+                    [rowHeight]="'auto'"
+                    [count]="page?.totalElements"
+                    [limit]="page?.size"
+                    (page)="getData($event)"
+                    [externalPaging]="true"
+                    (activate)="rowClicked($event)"
+                  >
+                   -->
+            <ngx-datatable-column name="ID" prop="id">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <strong>{{ value }}</strong>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="NAME" prop="name">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <strong>{{ value }}</strong>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="CREATED AT" prop="created_at">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                {{ value | date: 'dd MMM yyyy' }}
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
